@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:white; padding:80px;">
+
+    {%with messages=get_flashed_messages()%}
+        {%if messages%}
+            {%for message in messages%}
+                {%if message == 'incorrect details'%}
+                    <div class="alert alert-danger">
+                        <strong>{{message}}</strong>
+                    </div>
+                {%endif%}
+                {%if message == 'password not match'%}
+                    <div class="alert alert-danger">
+                        <strong>{{message}} try again</strong>
+                    </div>
+                {%endif%}
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+
+<div style="background-color:blue;padding:80px;">
+<div style="background-color:white;padding:80px;">
+<div style="background-color:blue;padding:80px;">
+    <div style="background-color:white;padding:80px;">
+        <div style="background-color:blue;padding:10px;">
+
+<div style="margin:10% 20%;border-style:double;background-color:white; padding:10px;">
+<div class="container" >
+  <h2>CHOOSE</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalsignup">SIGNUP</button>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModallogin">LOGIN</button>
+  <br><br>
+
+  <!-- Modal signup -->
+  <div class="modal fade" id="myModalsignup" role="dialog">
+    <div class="modal-dialog" >
+
+      <!-- Modal content-->
+      <div class="modal-content" >
+        <div class="modal-header" >
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign Up Page</h4>
+        </div>
+        <div class="modal-body" style="background-color:blue;">
+          <form action="funreg" method="post">
+        <input style="padding:15px 40px;" name="name" type="text" placeholder="name"><br><br>
+        <input style="padding:15px 40px;" name="username" type="text" placeholder="username"><br><br><br>
+        <input style="padding:15px 40px;" name="password" type="password" placeholder="password"><br><br><br>
+        <input style="padding:15px 40px;" name="cpassword" type="password" placeholder="confirm password"><br><br><br>
+          <input style="padding:15px 40px; background-color:grey" name="submit" type="submit" value="register" id="reg">
+          </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="myModallogin" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Login Page</h4>
+        </div>
+        <div class="modal-body" style="background-color:blue;">
+          <form action="funlog" method="post">
+
+            <input style="padding:15px 40px;" name="username" type="text" placeholder="username"><br><br><br>
+            <input style="padding:15px 40px;" name="password" type="password" placeholder="password"><br><br><br>
+            <p>not registered??<a href="register">click</a>here</p>
+          <input style="padding:15px 40px;background-color:gray;" name="submit" type="submit" value="login">
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

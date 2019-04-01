@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor="yellow">
+<p><h1>firstname:{{fname}}</h1></p>
+<p><h1>lastname:{{lname}}</h1></p>
+<p><h1>username:{{uname}}</h1></p>
+{%if passw==cpassw%}
+<p><h1>password:{{passw}}</h1></p>
+<p><h1>confirm password:{{cpassw}}</h1></p>
+{%else%}
+<h1>password not match</h1>
+{%endif%}
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrapcss.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/bootstrapjq.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/bootstrapjs.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='javascript/websitejs.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.js') }}"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color:brown;background-image: linear-gradient(red,black);">
+<div class="container">
+    <div class="row">
+
+        <nav class="navbar navbar-inverse xs" style="background-color:black;">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand home bgc"><b>SpiderMan</b></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#home" id="home">Home</a></li>
+      <li><a id="aboutus" href="#aboutus">About SpiderMan</a></li>
+      <li><a id="gallery" href="#gallery">Gallery</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a  onclick="func1()" id="areg" href="#areg"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a id="alogin" href="#alogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+        <div class="col-xs" style="background-color:black;"> <img src="{{ url_for('static', filename='images/logo.jpg')}}" class="img-circle img-responsive" style="display: block;
+  margin-left: auto;margin-right: auto; height:30%;width:30%;"></div>
+        </div>
+    <div class="row">
+
+    </div>
+    <div class="row" id="div1" style="display:none;">
+        <div class="col-xs-12" style="background-color:pink;"><p align="center"><b>Registration</b></p></div>
+        <div class="col-xs-12" style="background-color:#660000;"><p align="center">text here</p>
+            <form action="register" method="post">
+            <div class="col-12"><input placeholder="firstname" class="inp1" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" name="fname" required></div>
+            <div class="col-12"><input placeholder="lastname" class="inp2" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" name="lname" required></div>
+            <div class="col-12"><input placeholder="username" class="inp3" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" name="uname" required></div>
+            <div class="col-12"><input placeholder="password" class="inp4" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" type="password" name="passw" required></div>
+            <div class="col-12"><input placeholder="confirm password" class="inp5" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" type="password" name="cpassw" required></div>
+            <div class="col-12"><button class="btn btn-primary" style="display: block;
+  margin-left: auto;margin-right: auto; padding:20px; margin-top:20px;" id="buttonreg" type="submit">Submit</button></div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="row" id="div2" style="display:none;">
+
+        <div class="col-xs-12" style="background-color:pink;"><p align="center"><b>login</b></p></div>
+        <div class="col-xs-12" style="background-color:#660000;"><p align="center">text here</p>
+            <div class="col-xs-12"><input placeholder="username" class="inpuser" style="display: block;
+  margin-left: auto;margin-right: auto; padding:15px 15px; border-radius:15px;resize:vertical;width:100%;box-sizing:border-box;max-width: 500px;"></div>
+
+            <div class="col-xs-12"><input placeholder="password" class="inppass" style="width:100%;box-sizing:border-box;max-width: 500px;
+            display: block;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;resize:vertical;"
+                                        type="password"></div>
+            <div class="col-xs-12"><button class="btn btn-primary" style="display: block;
+  margin-left: auto;margin-right: auto; padding:20px 15px; margin-top:40px;" id="buttonlogin">Submit</button></div>
+        </div>
+<br><br>
+    </div>
+
+    <div class="row" id="div3" style="display:none;">
+
+        <div class="col-xs-12" style="background-color:pink;"><p align="center"><b>About SpiderMan</b></p></div>
+        <div class="row-xs" style="background-color:#e60000;"><h1 align="center">Description</h1></div>
+            <div class="row-xs" style="background-color:light blue;"><p align="center"><b style="color:black;">Spider-Man has spider-like abilities including superhuman strength and the ability to cling to most surfaces. He is also extremely agile and has amazing reflexes. Spider-Man also has a “spider sense,” that warns him of impending danger.
+
+Spider-Man has supplemented his powers with technology. Being a brilliant chemist and scientist, Peter has made web-slingers, bracelets that shoot out a sticky webbing, allowing him to swing from building to building and ensnare opponents. He has also developed stingers that shoot powerful energy blasts that can stun foes.
+
+In the recent storyline, Spider-Man has been reborn with even stronger abilities. He has the ability to see in the dark, enhanced senses, and can feel the vibrations through his webbing. In addition to this, the new, “Iron Spidey,” suit has enhanced his strength further and gives protection from damage. Recently, however,
+                he has gotten rid of the suit and returned to the classic costume.</b></p></div>
+
+<img src="{{ url_for('static', filename='images/spiderman.jpg')}}" class=" img-responsive" style="display: block;
+  margin-left: auto;margin-right: auto;">
+
+    </div>
+
+    <div class="row" id="div4" style="display:none;background-color:#ff4d4d;background-image: linear-gradient(to right, red , black); padding:20px;">
+
+        <div class="col-xs-3"><img src="{{url_for('static',filename='images/s1.jpg')}}" style="height:50%;width:70%;"> </div>
+        <div class="col-xs-3"><img src="{{url_for('static',filename='images/logo.jpg')}}" style="height:70%;width:70%;"> </div>
+        <div class="col-xs-3"><img src="{{url_for('static',filename='images/proimage1.jpg')}}" style="height:70%;width:70%;"> </div>
+        <div class="col-xs-3"><img src="{{url_for('static',filename='images/spiderman.jpg')}}" style="height:70%;width:70%; margin-bottom:40px;"> </div>
+        <div class="col-xs-3"><img src="{{url_for('static',filename='images/spider uni.jpg')}}" style="height:70%;width:70%;"> </div>
+        <div class="col-xs-3"><img src="{{url_for('static',filename='images/crop.jpg')}}" style="height:70%;width:70%;"> </div>
+        <div class="col-xs-3"><img src="{{url_for('static',filename='images/logo.jpg')}}" style="height:70%;width:70%;"> </div>
+
+
+    </div>
+
+<div class="row" id="div5" style="display:block;">
+
+        <img class="img-circle" id="img1" src="{{ url_for('static', filename='images/animlogo.jpg')}}" style="height:60%;width:60%;display: block;
+  margin-left: auto;margin-right: auto;">
+        <img class="img-circle" id="img2" src="{{ url_for('static', filename='images/homecoming.jpg')}}" style="height:25%;width:25%;display: block;
+  margin-left: auto;margin-right: auto;">
+<br><br>
+    </div>
+
+
+</div>
+
+</body>
+</html>

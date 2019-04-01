@@ -1,0 +1,83 @@
+.imggoogle{
+    width:80px;
+    height:25px;
+    padding-top:40px;
+    padding-left:180px;
+    }
+.signin{
+    color: #202124;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 24px;
+    padding-left:180px;
+
+    }
+.continue{
+    font-size: 18px;
+    letter-spacing: .1px;
+    padding-left:140px;
+    padding-bottom:20px;
+    }
+.input1{
+        margin-left:40px;
+        padding-left:20px;
+        margin-top:20px;
+        height:40px;
+        width:350px;
+        border-radius:5px;
+}
+
+.forgot{
+        font-family: "Times New Roman", Times;
+        font-color:red;
+        margin:20px 0px;
+        padding-left:40px;
+
+}
+pre{
+
+    font-family: "Times New Roman", Times;
+    font-style:bold;
+    margin-left:40px;
+
+}
+.create{
+        color:#1a73e8;
+        margin-left:40px;
+
+}
+#next{
+        background-color:#1a73e8;
+        color:white;
+        text-decoration:none;
+        margin-left:185px;
+        padding:15px 25px;
+#nex{
+
+        color:black;
+        text-decoration: none;
+        background-color: yellow;
+        padding:50px 80px
+
+
+        }
+
+
+}
+
+.div123{
+background-color:white;
+  display: flex;
+  position:absolute;
+}
+.div1{
+        float:left;
+        border:1px solid grey;
+        border-radius: 25px;
+      background-color: white;
+      width: 450px;
+      height:550px;
+      margin:50px 450px;
+
+
+     }
+

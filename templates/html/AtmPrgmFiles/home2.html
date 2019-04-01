@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<title>BANK PGM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+  </head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+<div style="background-color:#250ddb;"class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+  <a style="background-color:#04f7f3;" href="returnhome" class="w3-bar-item w3-button" id="h1"><b style="">HOME</b></a>
+    <a style="background-color:#04f7f3;"href="#w1" class="w3-bar-item w3-button" id="a1"><b >ADD ACCOUNT</b></a>
+  <a style="background-color:#04f7f3;"href="#w2" class="w3-bar-item w3-button" id="a2" style=""><b>DEPOSIT</b></a>
+  <a style="background-color:#04f7f3;"href="#w3" class="w3-bar-item w3-button" id="a3"><b>CHECK BALANCE</b></a>
+    <a style="background-color:#04f7f3;"href="#w3" class="w3-bar-item w3-button" id="a4"><b>WITHDRAW</b></a>
+    <a style="background-color:#04f7f3;"href="#w5" class="w3-bar-item w3-button" id="a5"><b>VIEW DETAILS</b></a>
+  <a style="background-color:#04f7f3;"href="logout" class="w3-bar-item w3-button" id="lout"><b>LOGOUT</b></a>
+    <a style="background-color:#04f7f3;"href="#w8" class="w3-bar-item w3-button" id="a6"><b>Upload Photo</b></a>
+    <a style="background-color:#04f7f3;"href="#w10" class="w3-bar-item w3-button" id="a7"><b>Complaints</b></a>
+</div>
+
+<div class="w3-main" style="margin-left:200px;">
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+  <div class="w3-container" style="background-color:#961399;"><br><br><br>
+    <h1>Welcome:{{uname}}</h1>
+  </div>
+</div>
+
+<div class="w3-container" id="w10" style="display:none; margin-top:100px;">
+
+    <b><a href="google" data-toggle="tooltip" title="meghalrag02@gmail.com">click here </a>to send email to admin</b>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+
+
+
+</div>
+
+    {%if ff=='text'%}
+
+    <script>
+
+        $(document).ready(
+
+function(){
+
+        $("#w9").hide();
+
+        });
+
+    </script>
+
+
+
+
+    <div id="emailtext" style="display:block; margin:10% 20%;">
+        <form action="email" method="post">
+            <b>enter your message here:</b><br>
+            <textarea name="text" rows="7" cols="80"></textarea><br>
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+    {%endif%}
+
+<div class="w3-container" id="w8" style="display:none; margin-top:100px;">
+  <form action="proimage" method="post" enctype="multipart/form-data">
+            <div class="col-12" align="center"><input type='file' name="upload"/>
+                <p id="sss"></p></div>
+       <div class="col-12" align="center"><input type="submit" class="inp1 btn btn-primary xyz"
+                                                  name="submit" style="padding:10px 140px;" id="buttonpic"></div>
+
+
+
+  </form>
+
+
+
+</div>
+
+    {%with messages=get_flashed_messages()%}
+        {%if messages%}
+            {%for message in messages%}
+                {%if message == 'success'%}
+                    <div class="alert alert-success alertmsg" style="display:block;">
+                        <strong>{{msg}}</strong>
+                    </div>
+                {%endif%}
+                {%if message == 'error'%}
+                    <div class="alert alert-danger alertmsg">
+                        <strong>{{msg}}</strong>
+                    </div>
+                {%endif%}
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+
+
+
+<div class="col-12" align="center" style="margin-top:10px;" id="w9">
+    {%set str='uploads/'+img1%}
+    <img class="rounded-circle" width="600" height="550" src="{{ url_for('static', filename=str)}}" alt="update profilepic"
+         style="padding:50px;"></div>
+
+
+
+<div class="w3-container" id="w1" style="display:none">
+  <form action="updateprof" method="post">
+            <div class="col-12"><input placeholder="address" class="inp1" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" name="address" required></div>
+            <div class="col-12"><input placeholder="phone" class="inp2" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" name="phone" required></div>
+            <div class="col-12"><input placeholder="choose atmno" class="inp3" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" name="atmno" required></div>
+            <div class="col-12"><input placeholder="minimum balance" class="inp4" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" type="text" name="balance" required></div>
+            <div class="col-12"><button class="btn btn-primary"
+                                        style="display: block;
+  margin-left: auto;margin-right: auto; padding:20px; margin-top:20px;" id="buttonreg" type="submit">Add Account</button></div>
+            </form>
+
+
+
+</div>
+
+
+
+  <div class="w3-container" id="w2" style="display:none">
+    <form action="depo" method="post">
+            <div class="col-12"><input placeholder="enter amount" class="inp21" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" name="amount" required></div>
+            <div class="col-12"><input placeholder="confirm amount" class="inp22" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;width:100%;box-sizing:border-box;max-width: 500px;" name="camount" required></div>
+
+            <div class="col-12"><button class="btn btn-primary"
+                                        style="display: block;
+  margin-left: auto;margin-right: auto; padding:20px; margin-top:20px;" id="buttondep" type="submit">Submit</button></div>
+            </form>
+</div>
+
+  <div class="w32" id="w3" style="display:none">
+  <h1>COMING SOON....</h1>
+</div>
+
+      <div class="w3-container" id="w5" style="display:none">
+    <form action="display" method="post">
+            <div class="col-12"><input type="password" placeholder="confirm account by enter password" class="inp21" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; border-radius:15px;width:100%;
+  box-sizing:border-box;max-width: 500px;" name="password" required></div>
+            <div class="col-12"><input type="password" placeholder="enter atmno:" class="inp22" style="display: block;resize:vertical;
+  margin-left: auto;margin-right: auto; padding:15px 15px; margin-top:20px; border-radius:15px;width:100%;;max-width: 500px;" name="atmno" required></div>
+
+            <div class="col-12"><button class="btn btn-primary"
+                                        style="display: block;
+  margin-left: auto;margin-right: auto; padding:20px; margin-top:20px;" id="buttondisplay" type="submit">Submit</button></div><br><br>
+
+            </form>
+
+</div>
+
+    <br><br><br>
+
+    {%if flag=='1'%}
+    <div id="disp" style="margin-left:200px;margin-right:200px;
+    border-style:solid;background-color:yellow;display:block;">
+          <p><b>name:{{name}}</b></p>
+          <p style="font-style:oblique"><b>username:{{username}}</b></p>
+          <p style="font-style:bold"><b>address:{{address}}</b></p>
+            <p style="font-style:bold"><b>phone no:{{phone|int}}</b></p>
+          <p style="font-style:bold"><b>balance:{{bal}}</b></p>
+    </div>
+    {%endif%}
+
+
+    <p id="msg" style="display:block">{{message}}</p>
+  <p id="rtn" style="display:none"><a href="returnhome">click</a> here to go homepage</p>
+
+</div>
+
+<script>
+
+
+$(document).ready(
+
+function(){
+
+
+
+$("#h1").click(function()
+{
+$("#msg").hide();
+$("#rtn").hide();
+$("#disp").hide();
+$(".alertmsg").hide();
+$("#w9").fadeIn();
+});
+
+$("#a1").click(function()
+{
+$("#rtn").show();
+$("#w1").fadeIn();
+$("#w2").hide();
+$("#w3").hide();
+$("#w5").hide();
+$("#w8").hide();
+$("#w9").hide();
+$("#mySidebar").hide();
+$("#msg").hide();
+$("#disp").hide();
+$(".alertmsg").hide();
+});
+$("#a2").click(function()
+{
+$("#rtn").show();
+$("#w2").fadeIn();
+$("#w1").hide();
+$("#w3").hide();
+$("#w5").hide();
+$("#w8").hide();
+$("#w9").hide();
+$("#mySidebar").hide();
+$("#msg").hide();
+$("#disp").hide();
+$(".alertmsg").hide();
+});
+
+$("#a3").click(function()
+{
+$("#w3").fadeIn();
+$("#w2").hide();
+$("#w1").hide();
+$("#w5").hide();
+$("#w8").hide();
+$("#w9").hide();
+$("#mySidebar").hide();
+$("#disp").hide();
+});
+
+$("#a4").click(function()
+{
+$("#w3").fadeIn();
+$("#w2").hide();
+$("#w1").hide();
+$("#w5").hide();
+$("#w8").hide();
+$("#w9").hide();
+$("#mySidebar").hide();
+$("#disp").hide();
+});
+
+$("#a5").click(function()
+{
+$("#rtn").show();
+$("#w5").fadeIn();
+$("#w1").hide();
+$("#w2").hide();
+$("#w3").hide();
+$("#w8").hide();
+$("#w9").hide();
+$("#mySidebar").hide();
+$("#msg").hide();
+$("#disp").hide();
+$(".alertmsg").hide();
+
+});
+
+$("#a6").click(function()
+{
+$("#rtn").show();
+$("#w5").hide();
+$("#w1").hide();
+$("#w2").hide();
+$("#w3").hide();
+$("#w8").fadeIn();
+$("#w9").hide();
+$("#mySidebar").hide();
+$("#msg").hide();
+$("#disp").hide();
+$(".alertmsg").hide();
+
+});
+
+$("#a7").click(function()
+{
+$("#rtn").show();
+$("#w5").hide();
+$("#w1").hide();
+$("#w2").hide();
+$("#w3").hide();
+$("#w10").fadeIn();
+$("#w8").hide();
+$("#w9").hide();
+$("#mySidebar").hide();
+$("#msg").hide();
+$("#disp").hide();
+$(".alertmsg").hide();
+
+});
+
+
+
+$("#buttonreg").click(function()
+{
+$("#msg").show();
+});
+$("#buttonpic").click(function()
+{
+$("#msg").show();
+
+});
+
+$("#buttondep").click(function()
+{
+$("#msg").show();
+});
+
+$("#buttondisplay").click(function()
+{
+$("#msg").show();
+$("#disp").hide();
+});
+
+});
+
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>

